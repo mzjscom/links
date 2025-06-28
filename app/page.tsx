@@ -13,7 +13,7 @@ export default function Component() {
       description: "دفع آمن وسريع لجميع الخدمات",
       href: "https://shorturl.at/Q206u",
       color: "from-pink-700 to-purple-600",
-      hoverColor: "from-pink-400 to-pink-500",
+      hoverColor: "from-pink-700 to-pink-700",
       icon: CreditCard,
       accent: "pink",
     },
@@ -22,7 +22,7 @@ export default function Component() {
       description: "شحن فوري لرصيد eeZee",
       href: "https://shorturl.at/Q206u",
       color: "from-green-500 to-sky-600",
-      hoverColor: "from-blue-400 to-blue-500",
+      hoverColor: "from-pink-700 to-pink-700",
       icon: Smartphone,
       accent: "blue",
     },
@@ -30,19 +30,19 @@ export default function Component() {
       name: "دفع الفواتير",
       description: "ادفع فواتيرك بسهولة وأمان",
       href: "https://shorturl.at/Q206u",
-      color: "from-pink-500 to-green-600",
-      hoverColor: "from-red-700 to-green-800",
+      color: "from-pink-500 to-pink-600",
+      hoverColor: "from-pink-700 to-pink-800",
       icon: Receipt,
       accent: "green",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 flex items-center justify-center p-2 sm:p-4 lg:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-gray-100 to-slate-100 flex items-center justify-center p-2 sm:p-4 lg:p-6">
       <div className="w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <p className="text-sm sm:text-base lg:text-lg text-gray-100 max-w-xl mx-auto leading-relaxed px-4">
+          <p className="text-sm text-black text-xlg text-gray-100 max-w-xl mx-auto leading-relaxed px-4">
             اشحن خطك وتصفح آخر العروض
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function Component() {
                     <div
                       className={`
                       absolute inset-0 rounded-2xl sm:rounded-3xl  transition-opacity duration-500
-                      bg-gradient-to-br ${link.color}
+                      bg-gradient-to-br ${link.hoverColor}
                       ${hoveredLink === link.name ? "opacity-5" : ""}
                     `}
                     />
@@ -96,7 +96,7 @@ export default function Component() {
                     <div className="relative">
                       <div className="flex items-start justify-between mb-3 sm:mb-4">
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-xs sm:text-sm lg:text-base font-bold text-gray-900 mb-1 sm:mb-2 truncate">
+                          <h3 className="text-xs sm:text-sm lg:text-white font-bold text-gray-100 hover:text-gray-800 mb-1 sm:mb-2 truncate">
                             {link.name}
                           </h3>
                           <p className="text-xs sm:text-sm text-gray-100 leading-relaxed line-clamp-2">
