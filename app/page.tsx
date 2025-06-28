@@ -11,7 +11,7 @@ export default function Component() {
     {
       name: "الدفع السريع",
       description: "دفع آمن وسريع لجميع الخدمات",
-      href: "https://shorturl.at/Q206u",
+      href: "https://shorturl.at/UoXK7",
       color: "from-pink-700 to-purple-600",
       hoverColor: "from-pink-700 to-pink-700",
       icon: CreditCard,
@@ -20,7 +20,7 @@ export default function Component() {
     {
       name: "شحن رصيد eeZee",
       description: "شحن فوري لرصيد eeZee",
-      href: "https://shorturl.at/Q206u",
+      href: "https://shorturl.at/UoXK7",
       color: "from-green-500 to-sky-600",
       hoverColor: "from-pink-700 to-pink-700",
       icon: Smartphone,
@@ -29,7 +29,7 @@ export default function Component() {
     {
       name: "دفع الفواتير",
       description: "ادفع فواتيرك بسهولة وأمان",
-      href: "https://shorturl.at/Q206u",
+      href: "https://shorturl.at/UoXK7",
       color: "from-pink-500 to-pink-600",
       hoverColor: "from-pink-700 to-pink-800",
       icon: Receipt,
