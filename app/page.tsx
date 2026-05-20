@@ -38,7 +38,7 @@ export default function Component() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-gray-100 to-slate-100 flex items-center justify-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -182,7 +182,7 @@ export default function Component() {
             {[...Array(3)].map((_, i) => (
               <div
                 key={i}
-                className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"
+                className="w-2 h-2 bg-gray-300 rounded-full animate-pulse"
                 style={{ animationDelay: `${i * 200}ms` }}
               />
             ))}
