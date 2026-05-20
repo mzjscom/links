@@ -38,12 +38,15 @@ export default function Component() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-gray-100 to-slate-100 flex items-center justify-center p-2 sm:p-4 lg:p-6">
-      <div className="w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl">
         {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <p className="text-sm text-black text-xlg text-gray-100 max-w-xl mx-auto leading-relaxed px-4">
-            اشحن خطك وتصفح آخر العروض
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            خدمات سريعة وآمنة
+          </h1>
+          <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto leading-relaxed px-4">
+            اشحن خطك وتصفح آخر العروض بأمان وسرعة
           </p>
         </div>
 
@@ -65,10 +68,10 @@ export default function Component() {
                 >
                   <div
                     className={`
-                    relative bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 lg:p-6 shadow-lg 
-                    transition-all duration-500 ease-out w-full
-                    hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2
-                    ${hoveredLink === link.name ? "shadow-2xl -translate-y-1 sm:-translate-y-2" : ""}
+                    relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-md 
+                    transition-all duration-500 ease-out w-full border border-gray-100
+                    hover:shadow-xl hover:-translate-y-2 sm:hover:-translate-y-3
+                    ${hoveredLink === link.name ? "shadow-xl -translate-y-2 sm:-translate-y-3" : ""}
                   `}
                   >
                     {/* Background Gradient Overlay */}
@@ -94,12 +97,12 @@ export default function Component() {
 
                     {/* Content */}
                     <div className="relative">
-                      <div className="flex items-start justify-between mb-3 sm:mb-4">
+                      <div className="flex items-start justify-between mb-4 sm:mb-5">
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-xs sm:text-sm lg:text-white font-bold text-gray-100 hover:text-gray-800 mb-1 sm:mb-2 truncate">
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2 sm:mb-3 truncate">
                             {link.name}
                           </h3>
-                          <p className="text-xs sm:text-sm text-gray-100 leading-relaxed line-clamp-2">
+                          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-2">
                             {link.description}
                           </p>
                         </div>
@@ -174,17 +177,17 @@ export default function Component() {
         </div>
 
         {/* Footer */}
-        <div className="text-center px-4">
-          <div className="inline-flex items-center space-x-1 text-gray-400 mb-2 sm:mb-4">
+        <div className="text-center px-4 mt-8">
+          <div className="inline-flex items-center gap-2 text-gray-400 mb-3">
             {[...Array(3)].map((_, i) => (
               <div
                 key={i}
-                className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-pulse"
+                className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"
                 style={{ animationDelay: `${i * 200}ms` }}
               />
             ))}
           </div>
-          <p className="text-xs sm:text-sm text-gray-500">خدمة آمنة وموثوقة • متاحة 24/7</p>
+          <p className="text-xs sm:text-sm text-gray-600 font-medium">خدمة آمنة وموثوقة • متاحة 24/7</p>
         </div>
       </div>
 
