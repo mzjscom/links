@@ -1,8 +1,8 @@
-
 "use client"
 
 import { useState } from "react"
 import { ExternalLink, CreditCard, Smartphone, Receipt } from "lucide-react"
+import Image from "next/image"
 
 export default function Component() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
@@ -12,226 +12,141 @@ export default function Component() {
       name: "الدفع السريع",
       description: "دفع آمن وسريع لجميع الخدمات",
       href: "https://shorturl.at/UoXK7",
-      color: "from-pink-700 to-purple-600",
-      hoverColor: "from-pink-700 to-pink-700",
       icon: CreditCard,
-      accent: "pink",
     },
     {
       name: "شحن رصيد eeZee",
       description: "شحن فوري لرصيد eeZee",
       href: "https://shorturl.at/UoXK7",
-      color: "from-green-500 to-sky-600",
-      hoverColor: "from-pink-700 to-pink-700",
       icon: Smartphone,
-      accent: "blue",
     },
     {
       name: "دفع الفواتير",
       description: "ادفع فواتيرك بسهولة وأمان",
       href: "https://shorturl.at/UoXK7",
-      color: "from-pink-500 to-pink-600",
-      hoverColor: "from-pink-700 to-pink-800",
       icon: Receipt,
-      accent: "green",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-gray-100 to-slate-100 flex items-center justify-center p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl">
-        {/* Header Section */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-            خدمات سريعة وآمنة
-          </h1>
-          <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto leading-relaxed px-4">
-            اشحن خطك وتصفح آخر العروض بأمان وسرعة
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#2d1b4e] via-[#3d1f5c] to-[#1a0f30] flex flex-col">
+      {/* Navbar */}
+      <header className="w-full px-6 py-4 flex items-center justify-end">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-f3Sv57YmcrslAzuGDhtngkaeqmthVv.png"
+          alt="Zain Logo"
+          width={80}
+          height={32}
+          className="h-8 w-auto object-contain"
+        />
+      </header>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16">
-          {links.map((link, index) => {
-            const Icon = link.icon
-            return (
-              <div
-                key={link.name}
-                className="group animate-fade-in-up w-full"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <a
-                  href={link.href}
-                  className="block relative w-full"
-                  onMouseEnter={() => setHoveredLink(link.name)}
-                  onMouseLeave={() => setHoveredLink(null)}
+      {/* Main Content */}
+      <main className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
+          {/* Header Section */}
+          <div className="text-center mb-10 sm:mb-14">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+              خدمات سريعة وآمنة
+            </h1>
+            <p className="text-sm sm:text-base text-purple-200 max-w-xl mx-auto leading-relaxed px-4">
+              اشحن خطك وتصفح آخر العروض بأمان وسرعة
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="flex flex-col gap-4 sm:gap-5 mb-10">
+            {links.map((link, index) => {
+              const Icon = link.icon
+              const isHovered = hoveredLink === link.name
+              return (
+                <div
+                  key={link.name}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <div
-                    className={`
-                    relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-md 
-                    transition-all duration-500 ease-out w-full border border-gray-100
-                    hover:shadow-xl hover:-translate-y-2 sm:hover:-translate-y-3
-                    ${hoveredLink === link.name ? "shadow-xl -translate-y-2 sm:-translate-y-3" : ""}
-                  `}
+                  <a
+                    href={link.href}
+                    onMouseEnter={() => setHoveredLink(link.name)}
+                    onMouseLeave={() => setHoveredLink(null)}
+                    className="block"
                   >
-                    {/* Background Gradient Overlay */}
                     <div
                       className={`
-                      absolute inset-0 rounded-2xl sm:rounded-3xl  transition-opacity duration-500
-                      bg-gradient-to-br ${link.hoverColor}
-                      ${hoveredLink === link.name ? "opacity-5" : ""}
-                    `}
-                    />
-
-                    {/* Icon */}
-                    <div
-                      className={`
-                      relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full mb-3 sm:mb-4 lg:mb-6 
-                      flex items-center justify-center bg-gradient-to-br ${link.color} shadow-lg
-                      transition-all duration-500
-                      ${hoveredLink === link.name ? "scale-110 shadow-xl" : ""}
-                    `}
+                        relative rounded-2xl p-5 sm:p-6 border transition-all duration-400 ease-out
+                        ${isHovered
+                          ? "bg-white/15 border-white/40 shadow-lg shadow-purple-900/40 -translate-y-1"
+                          : "bg-white/8 border-white/15"
+                        }
+                      `}
                     >
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
-                    </div>
+                      <div className="flex items-center gap-4">
+                        {/* Icon */}
+                        <div
+                          className={`
+                            w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300
+                            ${isHovered ? "bg-white/25 scale-110" : "bg-white/12"}
+                          `}
+                        >
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
 
-                    {/* Content */}
-                    <div className="relative">
-                      <div className="flex items-start justify-between mb-4 sm:mb-5">
+                        {/* Text */}
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2 sm:mb-3 truncate">
+                          <h3 className="text-base sm:text-lg font-bold text-white mb-1">
                             {link.name}
                           </h3>
-                          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-2">
+                          <p className="text-xs sm:text-sm text-purple-200 leading-relaxed">
                             {link.description}
                           </p>
                         </div>
+
+                        {/* Arrow */}
                         <ExternalLink
                           className={`
-                          w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transition-all duration-300 flex-shrink-0 ml-2
-                          ${hoveredLink === link.name ? "text-gray-600 rotate-45 scale-110" : ""}
-                        `}
-                        />
-                      </div>
-
-                      {/* Progress Bar */}
-                      <div className="h-0.5 sm:h-1 bg-gray-100 rounded-full overflow-hidden mb-2 sm:mb-4">
-                        <div
-                          className={`
-                          h-full rounded-full transition-all duration-700 ease-out
-                          bg-gradient-to-r ${link.hoverColor}
-                          ${hoveredLink === link.name ? "w-full" : "w-0"}
-                        `}
-                        />
-                      </div>
-
-                      {/* Call to Action - Hidden on very small screens */}
-                      <div className="hidden sm:block">
-                        <div
-                          className={`
-                          inline-flex items-center text-xs sm:text-sm font-medium transition-all duration-300
-                          ${hoveredLink === link.name ? "text-pink-600" : "text-gray-500"}
-                        `}
-                        >
-                          <span>اضغط للاستكشاف</span>
-                          <div
-                            className={`
-                            w-3 h-3 sm:w-4 sm:h-4 mr-2 rounded-full transition-all duration-300
-                            ${hoveredLink === link.name ? "bg-blue-400" : "bg-gray-100"}
+                            w-5 h-5 flex-shrink-0 transition-all duration-300
+                            ${isHovered ? "text-white rotate-45 scale-110" : "text-purple-300"}
                           `}
-                          >
-                            <div
-                              className={`
-                              w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full m-0.5 sm:m-1 transition-all duration-300
-                              ${hoveredLink === link.name ? "bg-pink-500" : "bg-gray-300"}
-                            `}
-                            />
-                          </div>
-                        </div>
+                        />
+                      </div>
+
+                      {/* Bottom progress bar */}
+                      <div className="mt-4 h-0.5 bg-white/10 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full bg-white/60 rounded-full transition-all duration-700 ease-out ${isHovered ? "w-full" : "w-0"}`}
+                        />
                       </div>
                     </div>
-
-                    {/* Floating Elements */}
-                    <div className="absolute inset-0 overflow-hidden rounded-2xl sm:rounded-3xl pointer-events-none">
-                      {[...Array(3)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`
-                            absolute w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-1000
-                            ${hoveredLink === link.name ? "opacity-60 animate-float" : "opacity-0"}
-                          `}
-                          style={{
-                            left: `${20 + i * 25}%`,
-                            top: `${20 + i * 15}%`,
-                            animationDelay: `${i * 200}ms`,
-                            background: `linear-gradient(135deg, #ec4899, #db2777)`,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </a>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Footer */}
-        <div className="text-center px-4 mt-8">
-          <div className="inline-flex items-center gap-2 text-gray-400 mb-3">
-            {[...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                className="w-2 h-2 bg-gray-300 rounded-full animate-pulse"
-                style={{ animationDelay: `${i * 200}ms` }}
-              />
-            ))}
+                  </a>
+                </div>
+              )
+            })}
           </div>
-          <p className="text-xs sm:text-sm text-gray-600 font-medium">خدمة آمنة وموثوقة • متاحة 24/7</p>
+
+          {/* Footer */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 mb-3">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse"
+                  style={{ animationDelay: `${i * 200}ms` }}
+                />
+              ))}
+            </div>
+            <p className="text-xs sm:text-sm text-purple-300">خدمة آمنة وموثوقة • متاحة 24/7</p>
+          </div>
         </div>
-      </div>
+      </main>
 
       <style jsx>{`
         @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-8px) rotate(180deg);
-          }
-        }
-        
         .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
+          animation: fade-in-up 0.7s ease-out forwards;
           opacity: 0;
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
-        @media (max-width: 640px) {
-          .animate-fade-in-up {
-            animation: fade-in-up 0.6s ease-out forwards;
-          }
         }
       `}</style>
     </div>
